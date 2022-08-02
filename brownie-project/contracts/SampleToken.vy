@@ -105,17 +105,17 @@ def mint(_to: address, _value: uint256):
 
 
 @internal
-def _burn(_address: address, _value: uint256):
+def _burn(_to: address, _value: uint256):
     """
     @dev Internal function that burns an amount of the token of a given
          account.
     @param _to The account whose tokens will be burned.
     @param _value The amount that will be burned.
     """
-    assert _address != ZERO_ADDRESS
+    assert _to != ZERO_ADDRESS
     self.totalSupply -= _value
-    self.balanceOf[_address] -= _value
-    log Transfer(_address, ZERO_ADDRESS, _value)
+    self.balanceOf[_to] -= _value
+    log Transfer(_to, ZERO_ADDRESS, _value)
 
 
 @external
@@ -128,11 +128,11 @@ def burn(_value: uint256):
 
 
 @external
-def burnFrom(_address: address, _value: uint256):
+def burnFrom(_to: address, _value: uint256):
     """
     @dev Burn an amount of the token from a given account.
     @param _to The account whose tokens will be burned.
     @param _value The amount that will be burned.
     """
-    self.allowance[_address][msg.sender] -= _value
-    self._burn(_address, _value)
+    self.allowance[_to][msg.sender] -= _value
+    self._burn(_to, _value)
