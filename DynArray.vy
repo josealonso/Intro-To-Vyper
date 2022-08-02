@@ -21,7 +21,7 @@ def examples(xs: DynArray[uint256, 5]) -> DynArray[uint256, 8]:
     ys: DynArray[uint256, 8] = [1, 2, 3]
     for x in xs:
         ys.append(x)
-        return ys
+    return ys
 
 @external
 @pure
@@ -29,5 +29,5 @@ def filter(addrs: DynArray[address, 5]) -> DynArray[address, 5]:
     nonzeros: DynArray[address, 5] = []
     for addr in addrs:
         if addr != ZERO_ADDRESS:
-            nonzeros.append(adddr)
+            nonzeros.append(addr)
     return nonzeros
