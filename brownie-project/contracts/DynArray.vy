@@ -31,3 +31,4 @@ def filter(addrs: DynArray[address, 5]) -> DynArray[address, 5]:
         if addr != ZERO_ADDRESS:
             nonzeros.append(addr)
     return nonzeros
+
