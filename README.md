@@ -8,3 +8,5 @@ Prepare a virtual environment to install Vyper
 python3 -m venv env
 source venv/bin/activate
 pip install vyper
+
+`brownie compile`
